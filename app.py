@@ -8,21 +8,13 @@ from typing import Callable
 # > python
 # > from app import db
 # > db.create_all()
-#
-
-# For Pycharm only (https://stackoverflow.com/questions/35242153/unresolved-attribute-column-in-class-sqlalchemy)
-# class MySQLAlchemy(SQLAlchemy):
-#     Column: Callable
-#     String: Callable
-#     Integer: Callable
-#     DateTime: Callable
-
+# Before adding this to git:
+# > pip install gunicorn
+# > pip freeze > requirements.txt
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
-
-# db.create_all()
 
 
 class Todo(db.Model):
